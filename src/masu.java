@@ -1,14 +1,10 @@
 public class masu extends MyFrame{
-	public void run() {
+	boolean isSpace=false;
+	public void run(){
 		CreateMeiro create=new CreateMeiro();
-		addKeyListener(create);
+		System.out.println("a");
 		while(true) {
-			while(true) {
-				create.run(this);
-				if(create.keyPressed(null)) {
-					
-				}
-			}
+			create.run(this);
 		}
 	}
 }
