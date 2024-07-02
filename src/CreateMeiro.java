@@ -1,12 +1,12 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
-
 public class CreateMeiro implements KeyListener{
 	static int path=0;
 	static int wall=1;
 	int height=15;
 	int wigth=15;
+	boolean start,gorl=false;
 	public void run(MyFrame f) {
 		int[][]maze=new int [height][wigth];
 		for(int i=0;i<height;i++) {
@@ -57,8 +57,21 @@ public class CreateMeiro implements KeyListener{
 		}
 		for(int i=0;i<height;i++) {
 			for(int j=0;j<wigth;j++) {
-				if(maze[i][j]==wall)
+				if(maze[i][j]==wall) {
+					f.setColor(0,0,0);
 					f.fillRect(100+i*15,100+j*15,15,15);
+				}else if(i==1&&j==1) {
+					f.setColor(0,0,255);
+					f.fillRect(100+i*15,100+j*15,15,15);
+				}
+				else if(i==13&&j==13) {
+					f.setColor(255,0,0);
+					f.fillRect(100+i*15,100+j*15,15,15);
+				}
+				else {
+					f.setColor(255,255,255);
+					f.fillRect(100+i*15,100+j*15,15,15);
+				}
 			}
 		}
 	}
@@ -72,7 +85,7 @@ public class CreateMeiro implements KeyListener{
 	public void keyPressed(KeyEvent e) {
 		// TODO 自動生成されたメソッド・スタブ
 		if(e.getKeyCode()==KeyEvent.VK_SPACE) {
-			
+			masu.isSpace=true;
 		}
 	}
 
